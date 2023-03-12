@@ -25,14 +25,9 @@ function App() {
             <h1>Vite + React</h1>
             <div className="card">
                 <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}! = {(x => {
-                    if (x === 0) {
-                        return 1
-                    }
-                    return x * factorial(x - 1)
-                })(count)}
+                    count is {count}! = {factorial(count)}
                 </button>
-                <p>
+                <p>declaration
                     Edit <code>src/App.tsx</code> and save to test HMR
                 </p>
             </div>
