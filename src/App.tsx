@@ -5,6 +5,13 @@ import './App.css'
 function App() {
     const [count, setCount] = useState(0)
 
+    const factorial = (x: number): number => {
+        if (x === 0) {
+            return 1
+        }
+        return x * factorial(x - 1);
+    };
+
     return (
         <div className="App">
             <div>
@@ -18,19 +25,12 @@ function App() {
             <h1>Vite + React</h1>
             <div className="card">
                 <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}! = {
-                    (x => {
-                            const fn = (y) => {
-                                if (y === 0) {
-                                    return 1
-                                }
-                                return y * fn(y - 1);
-                            }
-                            return fn(x)
-                        }
-                    )(count)
-                }
-
+                    count is {count}! = {(x => {
+                    if (x === 0) {
+                        return 1
+                    }
+                    return x * factorial(x - 1)
+                })(count)}
                 </button>
                 <p>
                     Edit <code>src/App.tsx</code> and save to test HMR
